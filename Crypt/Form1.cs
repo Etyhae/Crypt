@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Numerics;
 
 namespace Crypt
 {
-    public partial class Form1 : Form
+    public partial class Crypto : Form
     {
-        public Form1()
+        public Crypto()
         {
             InitializeComponent();
         }
@@ -71,6 +64,39 @@ namespace Crypt
             bool checkResult = leftPart.Equals(rightPart);
 
             checkResultText.Text = checkResult.ToString();
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nNumText_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void SignRSA_btn_Click(object sender, EventArgs e)
+        {
+
+            BigInteger eNum = BigInteger.Parse(eNumText_RSA.Text);
+            BigInteger sign = BigInteger.Parse(signText_RSA.Text);
+            BigInteger msgNum = BigInteger.Parse(msgNumText_RSA.Text);
+            BigInteger nNum = BigInteger.Parse(nNumText_RSA.Text);
+
+            bool checkResult = BigInteger.ModPow(sign, eNum, nNum).Equals(msgNum);
+            checkResultText_RSA.Text = checkResult.ToString();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
 
         }
     }
